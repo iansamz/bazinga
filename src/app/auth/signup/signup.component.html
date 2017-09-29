@@ -1,0 +1,11 @@
+<div fxLayout="column" class="form-container" fxLayout="column" fxFlex="1 0 auto" fxLayoutAlign="center center ">
+    <!--<img src="assets/images/lock.svg" id="logo">-->
+    <h2>Signup With:</h2>
+    <span class="error" *ngIf="error">{{ error }}</span>
+
+    <button center md-raised-button raised class="lg-btn" (click)="loginFb()" id="fb"><img src="../../../assets/icons/facebook-logo.png"> </button><br>
+    <button center md-raised-button raised class="lg-btn" (click)="loginGoogle()" id="google"><img src="../../../assets/icons/search.png"></button><br>
+    <button center md-raised-button raised color="primary" class="lg-btn" routerLink="/auth/signup-email" id="email"><md-icon>mail</md-icon> </button><br>
+
+    <a routerLink="/auth/login" routerLinkActive="active" class="alc">Already have an account? <strong>Login here</strong></a>
+</div>

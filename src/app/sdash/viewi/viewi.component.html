@@ -1,0 +1,21 @@
+<md-card>
+    <h2>{{internship.intTitle}}</h2>
+    <p>{{internship.intInfo}}</p>
+    <md-chip-list>
+        <md-chip *ngFor="let category of internship.intCategories" selected="false" color="primary">
+            {{category}}
+        </md-chip>
+    </md-chip-list>
+    <br>
+    <br>
+    <br>
+    <md-select placeholder="Estimated Duration" name="estDuration" [(ngModel)]="internship.estDuration" disabled>
+        <md-option [value]="1">1-2 Months</md-option>
+        <md-option [value]="2">3-4 Months</md-option>
+        <md-option [value]="3">5-6 Months</md-option>
+    </md-select>
+    <h3>Employer : {{internship.empName}}</h3>
+    <button md-raised-button color="primary" (click)=viewe(internship.empId)>View Employer</button>
+
+    <button md-raised-button> </button>
+</md-card>

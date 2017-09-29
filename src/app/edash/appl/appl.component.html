@@ -1,0 +1,35 @@
+<md-card class="container">
+
+    <h2>Title : {{internship.intTitle}}</h2>
+    <h3>Info : {{internship.intInfo}}</h3>
+    <h3 *ngIf=ifClosed>You this Closed this Program</h3>
+
+    <button *ngIf=!ifClosed color="primary" class="close" (click)=close() md-raised-button>Close Internship</button>
+
+    <div *ngIf=!ifClosed>
+        <h3>Applicants:</h3>
+        <md-card *ngFor="let applicant of applicants" fxLayout.xs="column" fxLayout.sm="column">
+            <div class="userImage" [ngStyle]="{'background-image': 'url(' + applicant.photoURL + ')'}">
+            </div>
+            <h3 class="name">{{applicant.cName}}</h3>
+            <span fxFlex></span>
+            <button color="primary" class="card-btn" (click)=view(applicant.cId) md-raised-button>View Profile<md-icon>remove_red_eye</md-icon> </button>
+            <button color="primary" class="card-btn" (click)=accept(applicant.cId) md-raised-button>Accept <md-icon>add</md-icon> </button>
+        </md-card>
+    </div>
+
+    <div *ngIf=ifClosed>
+        <h3>Interns:</h3>
+        <md-card *ngFor="let intern of interns" fxLayout.xs="column" fxLayout.sm="column">
+            <div class="userImage" [ngStyle]="{'background-image': 'url(' + intern.photoURL + ')'}">
+            </div>
+            <h3 class="name">{{intern.displayName}}</h3>
+            <span fxFlex></span>
+            <button color="primary" class="card-btn" (click)=view(intern.uid) md-raised-button>View Profile<md-icon>remove_red_eye</md-icon> </button>
+
+        </md-card>
+    </div>
+
+    <button *ngIf=!ifClosed color="primary" class="close" (click)=close() md-raised-button>Close Internship</button>
+
+</md-card>

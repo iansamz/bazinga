@@ -1,0 +1,76 @@
+<md-card class="card-container">
+    <md-tab-group>
+        <md-tab label="Internship">
+            <form #intForm='ngForm' autocomplete="off" novalidate fxLayout="column">
+                <h1 style="color:#f44336">Create Internship</h1>
+                <md-input-container>
+                    <input mdInput placeholder="Title" name="title" [(ngModel)]="title" required>
+                </md-input-container>
+                <p class="desc">Short Title Describing Internship</p>
+                <md-input-container>
+                    <input mdInput placeholder="Description" name="description" [(ngModel)]="descprition" required>
+                </md-input-container>
+                <p class="desc">What is the internship about? Certain jobs the Intern will be conducting</p>
+                <md-select multiple placeholder="Category" name="categories" [(ngModel)]="categories">
+                    <md-option *ngFor="let category of this.cs.categories" [value]="category.$value">
+                        {{category.$value}}
+                    </md-option>
+                </md-select>
+                <br>
+                <md-input-container>
+                    <input type="date" mdInput placeholder="Start Date" name="date" [(ngModel)]="date">
+                </md-input-container>
+                <br>
+                <md-select placeholder="Estimated Duration" name="estDuration" [(ngModel)]="estDuration">
+                    <md-option [value]="1">1-2 Months</md-option>
+                    <md-option [value]="2">3-4 Months</md-option>
+                    <md-option [value]="3">5-6 Months</md-option>
+                </md-select>
+                <br>
+                <button [disabled]="!intForm.valid" color="primary" md-raised-button id="create" (click)=createI(intForm.value)>Create</button>
+            </form>
+        </md-tab>
+        <md-tab label="Job">
+            <form #jobForm='ngForm' autocomplete="off" novalidate fxLayout="column">
+                <h1 style="color:#f44336">Create Job</h1>
+                <md-input-container>
+                    <input mdInput placeholder="Title" name="title" [(ngModel)]="title" required>
+                </md-input-container>
+                <p class="desc">Short Title Describing Job</p>
+                <md-input-container>
+                    <input mdInput placeholder="Description" name="description" [(ngModel)]="descprition" required>
+                </md-input-container>
+                <md-input-container>
+                    <input mdInput placeholder="Link" name="link" [(ngModel)]="link">
+                </md-input-container>
+                <p class="desc">Link to similar project</p>
+                <md-select multiple placeholder="Category" name="categories" [(ngModel)]="categories">
+                    <md-option *ngFor="let category of this.cs.categories" [value]="category.$value">
+                        {{category.$value}}
+                    </md-option>
+                </md-select>
+                <p class="desc">Category/Skills</p>
+                <br>
+                <md-select placeholder="Estimated Duration" name="estDuration" [(ngModel)]="estDuration">
+                    <md-option [value]="1">1-2 Months</md-option>
+                    <md-option [value]="2">3-4 Months</md-option>
+                    <md-option [value]="3">5-6 Months</md-option>
+                </md-select>
+                <p class="desc">Estimated Duration</p>
+                <br>
+                <md-select placeholder="Budget" name="budget" [(ngModel)]="budget" required>
+                    <md-option [value]="0">Not Sure</md-option>
+                    <md-option [value]="1">5000-10000 shillings</md-option>
+                    <md-option [value]="2">10000-20000 shillings</md-option>
+                    <md-option [value]="3">20000-50000 shillings</md-option>
+                    <md-option [value]="4">50000-100000 shillings</md-option>
+                    <md-option [value]="5">100000-above shillings</md-option>
+                </md-select>
+                <p class="desc">Budget</p>
+                <br>
+                <button [disabled]="!jobForm.valid" color="primary" md-raised-button id="create" (click)=createJ(jobForm.value)>Create</button>
+            </form>
+        </md-tab>
+    </md-tab-group>
+
+</md-card>

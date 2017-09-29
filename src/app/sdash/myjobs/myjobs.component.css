@@ -1,0 +1,17 @@
+md-tab-group {
+    padding: 20px 10% 20px 10%;
+}
+
+h2,
+h3 {
+    color: #f44336
+}
+
+.mat-chip:not(.mat-basic-chip) {
+    background-color: #f44336;
+    color: white;
+}
+
+md-card {
+    margin: 10px;
+}

@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~https://fonts.googleapis.com/icon?family=Bubbler+One';
+body {
+    font-family: "Bubbler One"!important;
+}
+
+.mat-select,
+.mat-input,
+.mat-options,
+.mat-toolbar,
+.mat-card,
+.mat-button,
+.mat-raised-button,
+.mat-input-container,
+.mat-tab-label,
+.mat-tab-body-content,
+.mat-option {
+    font-family: "Bubbler One"!important;
+}

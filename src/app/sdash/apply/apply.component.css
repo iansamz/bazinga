@@ -1,0 +1,12 @@
+.mat-chip:not(.mat-basic-chip) {
+    background-color: #f44336;
+    color: white;
+}
+
+md-card {
+    margin: 20px 10% 20px 10%;
+}
+
+.error {
+    color: #f44336;
+}

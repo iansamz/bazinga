@@ -1,0 +1,12 @@
+.lg-btn {
+    width: 100px;
+}
+
+md-input-container {
+    padding: 10px
+}
+
+.error {
+    font-size: small;
+    color: red;
+}

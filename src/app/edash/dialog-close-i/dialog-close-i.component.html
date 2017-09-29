@@ -1,0 +1,8 @@
+<h1 md-dialog-title class="primary-color">Close : {{data}}</h1>
+<md-dialog-content class="accent-color">
+    Are you sure you?
+</md-dialog-content>
+<md-dialog-actions>
+    <button class="btn" color="primary" (click)="dialogRef.close(true)" md-raised-button [md-dialog-close]="true">Yes</button>
+    <button class="btn" color="primary" md-raised-button md-dialog-close>No</button>
+</md-dialog-actions>

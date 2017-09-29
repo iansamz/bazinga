@@ -1,0 +1,83 @@
+<div class="set-container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxFlex=33 fxFlex.sm=100 style="margin-bottom:10%">
+        <div class="userContainer" fxLayout="column">
+            <md-card fxLayout="column">
+                <div class="userView">
+                    <div class="userDetails">
+                        <div class="userImage" [ngStyle]="{'background-image': 'url(' + user.photoURL + ')'}">
+
+                        </div>
+
+                        <div class="userName">
+                            {{ user.displayName }} <br> {{ user.email }} <br *ngIf="user.phone"> {{user.phone}} <br *ngIf="user.university">{{user.university}}<br *ngIf="user.companyName">{{user.companyName}}<br *ngIf="user.companyEmail">{{user.companyEmail}}
+                        </div>
+                    </div>
+                </div>
+            </md-card>
+        </div>
+    </div>
+    <md-card class="dets-card" fxLayout="column" fxFlex=66 fxFlex.sm=100>
+        <md-tab-group class="dets-card" fxLayout="column">
+
+            <md-tab label="About">
+                <h3>Bio</h3>
+                <p> {{user.bio}}</p>
+                <h3>Skills/Categories</h3>
+                <md-chip-list>
+                    <md-chip *ngFor="let category of user.skills" selected="false" color="primary">
+                        {{category}}
+                    </md-chip>
+                </md-chip-list>
+            </md-tab>
+
+            <md-tab label="Projects">
+                <app-projects [uid]="id"></app-projects>
+            </md-tab>
+            <md-tab label="Jobs/Intenships Posted">
+
+                <h2 *ngIf="user.myInternships">Internships</h2>
+                <md-card class="ij-card" *ngFor="let internship of myInternships">
+                    <h3>{{internship.intTitle}}</h3>
+                    <h5>{{internship.intInfo}}</h5>
+                    <md-chip-list>
+                        <md-chip *ngFor="let category of internship.intCategories" selected="false" color="primary">
+                            {{category}}
+                        </md-chip>
+                    </md-chip-list>
+                </md-card>
+                <h2 *ngIf="user.myJobs">Jobs</h2>
+                <md-card class="ij-card" *ngFor="let job of myJobs">
+                    <h3>{{job.jobTitle}}</h3>
+                    <h5>{{job.jobInfo}}</h5>
+                    <md-chip-list>
+                        <md-chip *ngFor="let category of job.jobCategories" selected="false" color="primary">
+                            {{category}}
+                        </md-chip>
+                    </md-chip-list>
+                </md-card>
+            </md-tab>
+            <md-tab label="Accepted Jobs/Intenships">
+                <h2 *ngIf="user.internshipsGiven">Internships</h2>
+                <md-card class="ij-card" *ngFor="let internship of internshipsGiven">
+                    <h3>{{internship.intTitle}}</h3>
+                    <h5>{{internship.intInfo}}</h5>
+                    <md-chip-list>
+                        <md-chip *ngFor="let category of internship.intCategories" selected="false" color="primary">
+                            {{category}}
+                        </md-chip>
+                    </md-chip-list>
+                </md-card>
+                <h2 *ngIf="user.jobsGiven">Jobs</h2>
+                <md-card class="ij-card" *ngFor="let job of jobsGiven">
+                    <h3>{{job.jobTitle}}</h3>
+                    <h5>{{job.jobInfo}}</h5>
+                    <md-chip-list>
+                        <md-chip *ngFor="let category of job.jobCategories" selected="false" color="primary">
+                            {{category}}
+                        </md-chip>
+                    </md-chip-list>
+                </md-card>
+            </md-tab>
+        </md-tab-group>
+    </md-card>
+</div>

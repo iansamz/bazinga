@@ -1,0 +1,27 @@
+<md-card>
+    <form #bioForm='ngForm' autocomplete="off" novalidate fxLayout="column" (ngSubmit)="onSubmit(bioForm)">
+        <!--<h4 class="error" *ngIf="error">{{ error }}</h4>-->
+        <h2>{{internship.intTitle}}</h2>
+        <p>{{internship.intInfo}}</p>
+        <md-chip-list>
+            <md-chip *ngFor="let category of internship.intCategories" selected="false" color="primary">
+                {{category}}
+            </md-chip>
+        </md-chip-list>
+        <br>
+        <br>
+        <md-select placeholder="Estimated Duration" name="estDuration" [(ngModel)]="internship.estDuration" disabled>
+            <md-option [value]="1">1-2 Months</md-option>
+            <md-option [value]="2">3-4 Months</md-option>
+            <md-option [value]="3">5-6 Months</md-option>
+        </md-select>
+        <h3>Employer : {{internship.empName}}</h3>
+        <br>
+
+        <h3>Give short reason as to why you shoud be hired</h3>
+        <md-input-container>
+            <textarea mdInput cols="30" rows="10" placeholder="Description" name="description" [(ngModel)]="descprition" required></textarea>
+        </md-input-container>
+        <button style="width:200px" md-raised-button color="primary" type="submit" [disabled]="!bioForm.valid">Apply</button>
+    </form>
+</md-card>

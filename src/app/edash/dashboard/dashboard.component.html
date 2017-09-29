@@ -1,0 +1,28 @@
+<md-tab-group>
+    <md-tab label="Internships">
+        <md-card *ngFor="let internship of internships">
+            <h2>{{internship.intTitle}}</h2>
+            <p>{{internship.intInfo}}</p>
+            <md-chip-list>
+                <md-chip *ngFor="let category of internship.intCategories" selected="false" color="primary">
+                    {{category}}
+                </md-chip>
+            </md-chip-list>
+            <h3>Employer : {{internship.empName}}</h3>
+            <button md-raised-button color="primary" (click)=viewi(internship.intId)>View</button>
+        </md-card>
+    </md-tab>
+    <md-tab label="Jobs">
+        <md-card *ngFor="let job of jobs">
+            <h2>{{job.jobTitle}}</h2>
+            <p>{{job.jobInfo}}</p>
+            <md-chip-list>
+                <md-chip *ngFor="let category of job.jobCategories" selected="false" color="primary">
+                    {{category}}
+                </md-chip>
+            </md-chip-list>
+            <h3>Employer : {{job.empName}}</h3>
+            <button md-raised-button color="primary" (click)=viewj(job.jobId)>View Appplicants</button>
+        </md-card>
+    </md-tab>
+</md-tab-group>

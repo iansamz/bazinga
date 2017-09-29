@@ -1,0 +1,45 @@
+<md-card class="container">
+
+    <h2>Title : {{job.jobTitle}}</h2>
+    <h3>Info : {{job.jobInfo}}</h3>
+    <h3 *ngIf=ifTaken>Job is Taken or Closed</h3>
+
+    <button *ngIf=!ifTaken color="primary" class="close" (click)=close() md-raised-button>Close Job</button>
+
+    <div *ngIf=ifTaken>
+        Selected for Job:
+        <md-card *ngIf="winner">
+            <div class="userImage" [ngStyle]="{'background-image': 'url(' + winner.photoURL + ')'}">
+            </div>
+            <h3 class="name">{{winner.displayName}}</h3>
+            <span fxFlex></span>
+            <button color="primary" class="card-btn" (click)=view(winner.uid) md-raised-button>View Profile<md-icon>remove_red_eye</md-icon> </button>
+        </md-card>
+    </div>
+
+    <div>
+        <h3>Quotes:</h3>
+        <md-card *ngFor="let quote of quotes" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+            <div fxLayout="column">
+                <div class="userImage" [ngStyle]="{'background-image': 'url(' + quote.freeLURL + ')'}">
+                </div>
+                <h3 class="name">{{quote.freeLName}}</h3>
+                <h3 class="name">Amount: {{quote.amount}} </h3>
+                <h3>Quote Info:</h3>
+                <p>
+                    {{quote.quote}}
+                </p>
+
+            </div>
+            <span fxFlex></span>
+            <button color="primary" class="card-btn" (click)=view(quote.freeLId) md-raised-button>View Profile<md-icon>remove_red_eye</md-icon> </button>
+            <button *ngIf=!ifTaken color="primary" class="card-btn" (click)=accept(quote.freeLId,quote.freeLName) md-raised-button>Accept <md-icon>add</md-icon> </button>
+
+        </md-card>
+    </div>
+
+
+
+    <button *ngIf=!ifTaken color="primary" class="close" (click)=close() md-raised-button>Close Job</button>
+
+</md-card>

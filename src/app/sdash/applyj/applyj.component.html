@@ -1,0 +1,32 @@
+<md-card>
+    <form #jobForm='ngForm' autocomplete="off" novalidate fxLayout="column" (ngSubmit)="onSubmit(jobForm)">
+
+        <h2>{{job.jobTitle}}</h2>
+        <p>{{job.jobInfo}}</p>
+
+        <md-chip-list>
+            <md-chip *ngFor="let category of job.jobCategories" selected="false" color="primary">
+                {{category}}
+            </md-chip>
+        </md-chip-list>
+        <h3>Employer : {{job.empName}}</h3>
+        <br>
+        <h3>Budget :{{budget}} </h3>
+        <br>
+        <br>
+        <md-select placeholder="Estimated Duration" name="estDuration" [(ngModel)]="job.jobDuration" disabled>
+            <md-option [value]="1">1-2 Months</md-option>
+            <md-option [value]="2">3-4 Months</md-option>
+            <md-option [value]="3">5-6 Months</md-option>
+        </md-select>
+        <md-input-container>
+            <input mdInput type="number" name="quoteAmount" [(ngModel)]="quoteAmount" onKeyPress="return event.charCode >= 48" min="1" placeholder="Quote Amount">
+        </md-input-container>
+
+        <h3>Give short reason as to why you shoud be hired</h3>
+        <md-input-container>
+            <textarea mdInput cols="30" rows="10" placeholder="Description" name="description" [(ngModel)]="descprition" required></textarea>
+        </md-input-container>
+        <button style="width:200px" md-raised-button color="primary" type="submit" [disabled]="!jobForm.valid">Submit</button>
+    </form>
+</md-card>

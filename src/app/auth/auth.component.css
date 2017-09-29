@@ -1,0 +1,12 @@
+.login-card {
+    min-width: 300px;
+}
+
+.form-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: calc(100vh - 100px);
+}
+
+
+/*@media screen and (max-width: 350px) {}*/

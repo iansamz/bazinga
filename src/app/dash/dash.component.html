@@ -1,0 +1,67 @@
+<md-sidenav-container fullscreen class="sidenav-container">
+    <md-sidenav id="sidenav" #sidenav mode="over right">
+        <div class="userViewContainer">
+
+            <div class="userView">
+                <div class="userDetails">
+                    <div class="userImage" [ngStyle]="{'background-image': 'url(' + this.as.user.photoURL + ')'}">
+                    </div>
+                    <div class="userName">
+                        {{ this.as.user.displayName }} {{ this.as.user.email }}<br>
+
+                    </div>
+                </div>
+            </div>
+            <md-toolbar>
+                <md-toolbar-row (click)=dashClient() (click)=sidenav.close() *ngIf="type">
+                    <md-icon class="sidenav-icon">dashboard</md-icon>
+                    <span>Dashboard</span>
+                </md-toolbar-row>
+                <md-toolbar-row (click)=dashEmp() (click)=sidenav.close() *ngIf="!type">
+                    <md-icon class="sidenav-icon">dashboard</md-icon>
+                    <span>Dashboard</span>
+                </md-toolbar-row>
+                <md-toolbar-row (click)=addIJ() (click)=sidenav.close() *ngIf="!type">
+                    <md-icon class="sidenav-icon">add</md-icon>
+                    <span>Internships/Jobs</span>
+                </md-toolbar-row>
+                <md-toolbar-row (click)=clientJobs() (click)=sidenav.close() *ngIf="type">
+                    <md-icon class="sidenav-icon">assignment</md-icon>
+                    <span>Browse Jobs/Internships</span>
+                </md-toolbar-row>
+                <md-toolbar-row (click)=profile() (click)=sidenav.close()>
+                    <md-icon class="sidenav-icon">portrait</md-icon>
+                    <span>Profile</span>
+                </md-toolbar-row>
+                <md-toolbar-row (click)=settings() (click)=sidenav.close()>
+                    <md-icon class="sidenav-icon">settings</md-icon>
+                    <span>Settings</span>
+                </md-toolbar-row>
+                <md-toolbar-row (click)=switch() (click)=sidenav.close()>
+                    <md-icon class="sidenav-icon">sync</md-icon>
+                    <span *ngIf="!type">Freelancer</span>
+                    <span *ngIf="type">Employer</span>
+                </md-toolbar-row>
+                <md-toolbar-row (click)="logout()" (click)=sidenav.close()>
+                    <md-icon class="sidenav-icon">exit_to_app</md-icon>
+                    <span>Logout</span>
+                </md-toolbar-row>
+            </md-toolbar>
+        </div>
+    </md-sidenav>
+    <div class="header-toolbar">
+        <md-toolbar color="primary" class="header-toolbar2">
+            <div fxFlex="row" fxLayoutAlign="center" class="logo-container">
+                <img class="logo animated slideInDown" src="../assets/images/bazingacirc.png">
+            </div>
+            <span fxFlex></span>
+
+            <button md-icon-button (click)=sidenav.toggle()><md-icon>menu</md-icon></button>
+        </md-toolbar>
+    </div>
+
+    <div class="content">
+        <router-outlet></router-outlet>
+        <!--<app-navbar class="footer"></app-navbar>-->
+    </div>
+</md-sidenav-container>

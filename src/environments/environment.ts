@@ -6,3 +6,14 @@
 export const environment = {
   production: false
 };
+export const firebaseConfig = {
+  production: false,
+  firebase:{
+    apiKey: "AIzaSyBahlb8qk484-xwMHVltQTWT0kHDIwKpMY",
+    authDomain: "bazinga-99607.firebaseapp.com",
+    databaseURL: "https://bazinga-99607.firebaseio.com",
+    projectId: "bazinga-99607",
+    storageBucket: "bazinga-99607.appspot.com",
+    messagingSenderId: "744507723919"
+  }
+};

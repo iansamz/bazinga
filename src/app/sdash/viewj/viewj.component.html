@@ -1,0 +1,22 @@
+<md-card>
+    <h2>{{job.jobTitle}}</h2>
+    <p>{{job.jobInfo}}</p>
+
+    <md-chip-list>
+        <md-chip *ngFor="let category of job.jobCategories" selected="false" color="primary">
+            {{category}}
+        </md-chip>
+    </md-chip-list>
+    <br>
+    <br>
+    <br>
+    <md-select placeholder="Estimated Duration" name="estDuration" [(ngModel)]="job.jobDuration" disabled>
+        <md-option [value]="1">1-2 Months</md-option>
+        <md-option [value]="2">3-4 Months</md-option>
+        <md-option [value]="3">5-6 Months</md-option>
+    </md-select>
+    <h3>Employer : {{job.empName}}</h3>
+    <button md-raised-button color="primary" (click)=viewe(job.empId)>View Employer</button>
+
+    <button md-raised-button> </button>
+</md-card>

@@ -1,0 +1,30 @@
+.userImage {
+    background-size: cover;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.container {
+    padding: 20px 10% 20px 10%;
+}
+
+h2,
+h3 {
+    color: #f44336
+}
+
+md-card {
+    margin: 10px 5% 10px 5%;
+}
+
+.card-btn {
+    height: 50px;
+    width: 200px;
+    margin: 5px;
+}
+
+.name {
+    padding: 10px
+}

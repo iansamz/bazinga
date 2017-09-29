@@ -1,0 +1,37 @@
+<md-card class="card-container">
+    <form #projForm='ngForm' autocomplete="off" novalidate fxLayout="column">
+        <h1 style="color:#f44336">Create Projects</h1>
+        <md-input-container>
+            <input mdInput placeholder="Title" name="title" [(ngModel)]="title" required>
+        </md-input-container>
+        <p class="desc">Short Title Describing Project</p>
+        <md-input-container>
+            <input mdInput placeholder="Link" name="link" [(ngModel)]="link" required>
+        </md-input-container>
+        <p class="desc">Link To the Project(Github, websites etc..)</p>
+        <md-input-container>
+            <input mdInput placeholder="Client Name" name="clientName" [(ngModel)]="clientName" required>
+        </md-input-container>
+        <p class="desc">Who Did you Work For?</p>
+        <md-input-container>
+            <input mdInput placeholder="Client Email" name="clientEmail" [(ngModel)]="clientEmail" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+        </md-input-container>
+        <p class="desc">Clients Email to Confirm</p>
+        <!--<md-input-container>
+            <input mdInput placeholder="Project Date" name="date" [(ngModel)]="date">
+        </md-input-container>-->
+        <p class="desc">When Did you complete Project</p>
+        <md-input-container>
+            <textarea mdInput placeholder="Description" name="description" [(ngModel)]="descprition" required></textarea>
+        </md-input-container>
+        <p class="desc">Highlight the problem and solution, your role and any interesting technologies used (if any). Be thorough. Clients love it when you can show you understand their problem.</p>
+        <md-select multiple placeholder="Category/Skills Used" name="category" [(ngModel)]="categories">
+            <md-option *ngFor="let category of this.cs.categories" [value]="category.$value">
+                {{category.$value}}
+            </md-option>
+        </md-select>
+        <br>
+
+        <button [disabled]="!projForm.valid" color="primary" md-raised-button id="create" (click)=createP(projForm.value)>Create</button>
+    </form>
+</md-card>
